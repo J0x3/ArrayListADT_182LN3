@@ -51,6 +51,8 @@ public interface IntegerListInterface {
     // index < size()-1.
 
     public void displayList();
-
-    public void displayItem(int index);
+    // Displays entire array contents if initialized.
+    // Precondition: Initialized array.
+    // Postcondition: Prints out formatted array (index:value).
+    // Throws: None.
 }

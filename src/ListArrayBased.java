@@ -76,8 +76,4 @@ public class ListArrayBased implements ListInterface {
         }
         System.out.println("]");
     }
-
-    public void displayItem(int index) {
-        System.out.print(index + ":" + get(index));
-    }
 }
