@@ -13,7 +13,8 @@ public class ListArrayBased implements ListInterface {
     }
 
     public int size() {
-        return numItems;1 Advanced Object-Oriented Programming (3);
+        return numItems;
+        //1 Advanced Object-Oriented Programming (3);
     }
 
     public void removeAll() {
@@ -23,10 +24,9 @@ public class ListArrayBased implements ListInterface {
         numItems = 0;
     }
 
-    public void add(int index, Object item)
-            throws ListIndexOutOfBoundsException {
+    public void add(int index, Object item) {
         if (numItems > MAX_LIST) {
-            throw ListException("List exception on add");
+            System.out.println("List exception on add");
         }
         if (index >= 0 && index <= numItems) {
             // make room for new element by shifting all items at
@@ -40,36 +40,44 @@ public class ListArrayBased implements ListInterface {
             numItems++;
         }
         else { // index out of range
-            throw new ListIndexOutOfBoundsException(
-                    "ListIndexOutOfBoundsException on add");
+            System.out.println("Exception on add");
         }
     }
 
-    public Object get(int index)
-            throws ListIndexOutOfBoundsException {
-        if (index > 0 && index < numItems) {
+    public Object get(int index) {
+        if (index >= 0 && index < numItems) {
             return items[index];
         }
         else { // index out of range
-            throw new ListIndexOutOfBoundsException(
-                    "ListIndexOutOfBoundsException on get");
+            System.out.println("Exception on get");
+            return null;
         }
     }
 
-    public void remove(int index)
-        throws ListIndexOutOfBoundsException {
+    public void remove(int index) {
         if (index >= 0 && index < numItems) {
             // delete an item by shifting all items at
             // positions > index toward the beginning of the list
             // (no shift if index == size)
             for (int pos = index+1; pos <= size(); pos++) {
-                items[pos-1] = item[pos];
+                items[pos-1] = items[pos];
             }
             numItems--;
         }
         else { // index out of range
-            throw new ListIndexOutOfBoundsException(
-                    "ListIndexOutOfBoundsException on remove");            )
+            System.out.println("Exception on remove");
         }
+    }
+
+    public void displayList() {
+        System.out.print("[ ");
+        for (int pos = 0; pos < numItems; pos++) {
+            System.out.print(pos + ":" + items[pos] + ", ");
+        }
+        System.out.println("]");
+    }
+
+    public void displayItem(int index) {
+        System.out.print(index + ":" + get(index));
     }
 }

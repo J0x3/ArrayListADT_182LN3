@@ -31,8 +31,7 @@ public interface IntegerListInterface {
     // Throws: ListException if item cannot be placed on
     // the list.
 
-    public int get(int index) throws
-            ListIndexOutOfBoundsException;
+    public int get(int index);
     // Retrieves a list item by position.
     // Precondition: index is the number of item to be
     // retrieved.
@@ -41,8 +40,7 @@ public interface IntegerListInterface {
     // Throws: ListIndexOutOfBoundsException if index < 0 or
     // index < size()-1.
 
-    public void remove(int index) throws
-            ListIndexOutOfBoundsException;
+    public void remove(int index);
     // Deletes an item from the list at a given position.
     // Precondition: index indicated where the deletion
     // should occur.
@@ -51,4 +49,8 @@ public interface IntegerListInterface {
     // are renumbered accordingly
     // Throws: ListIndexOutOfBoundsException if index < 0 or
     // index < size()-1.
+
+    public void displayList();
+
+    public void displayItem(int index);
 }
